@@ -1,27 +1,37 @@
 <template>
-  <Navbar />
-<About />
-<Projects />
+  <div class="Nestone">
+    <h1> Data-rendering</h1>
+    <p>{{ greeting }}</p>
+
+    <h2>Toggle Visibility</h2>
+    <inout v-model="name" />
+    <p>Secret message: {{ message }}</p>
+    <button @click="secretMessage">Here</button>
+
+    <h2> List of Life Goals</h2>
+    <ul>
+<li v-for="(lifegoals. index) in lifegoals" :key="index">
+  {{ index + 1 }}. {{ lifegoals }}
+</li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+data() {
+  return {
+    message: 'Hi there this is the secret message',
+    lifegoals: ['Be an intellegent baddie', 'Gymbro', 'Build a portfolio'],
+    secretMessage: false,
+    greeting:'Hello there'
   }
+},
+  methods: {
+secretMessage() {
+  this.secretMessage="hi there"
+}
+  },
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
